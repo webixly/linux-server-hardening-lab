@@ -1,3 +1,11 @@
+# 🔐 Linux Server Hardening Lab
+
+This project demonstrates how to secure a Linux server (Ubuntu 24.04) using practical system administration techniques.
+
+The objective is to reduce the attack surface and protect the server against unauthorized access and brute-force attacks.
+
+---
+
 ## 🚀 Quick Summary
 
 A practical Linux server hardening project demonstrating:
@@ -7,15 +15,6 @@ A practical Linux server hardening project demonstrating:
 - 🚫 Automatic brute-force protection with Fail2Ban
 
 This lab simulates real-world system administration tasks and security practices.
-
-
-# 🔐 Linux Server Hardening Lab
-
-This project demonstrates how to secure a Linux server (Ubuntu 24.04) using practical system administration techniques.
-
-The objective is to reduce the attack surface and protect the server against unauthorized access and brute-force attacks.
-
----
 
 ## 📌 Overview
 
