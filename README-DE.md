@@ -1,66 +1,131 @@
 # 🔐 Linux Server Hardening Lab
 
-## 📌 Übersicht
+Dieses Projekt zeigt, wie ein Linux-Server (Ubuntu 24.04) durch grundlegende Sicherheitsmaßnahmen abgesichert werden kann.
 
-Dieses Projekt zeigt, wie man einen Linux-Server sicherer macht, indem man wichtige Sicherheitsmaßnahmen umsetzt.
-
-Das Ziel ist es, den Server vor häufigen Angriffen wie Brute-Force-Attacken zu schützen.
+Das Ziel ist es, die Angriffsfläche zu reduzieren und den Server vor unbefugtem Zugriff sowie Brute-Force-Angriffen zu schützen.
 
 ---
 
-## ⚙️ Verwendete Technologien
+## 📌 Überblick
 
-* Ubuntu Server 24.04
-* OpenSSH
-* UFW (Firewall)
-* Fail2Ban
+Dieses Projekt beinhaltet:
 
----
-
-## 🔐 SSH-Key-Authentifizierung
-
-Die Anmeldung mit Passwort wurde deaktiviert.
-Stattdessen wird eine sichere SSH-Key-Authentifizierung verwendet.
-
-![SSH Login](screenshots/ssh-login.png)
+* SSH-Authentifizierung mit Schlüssel (kein Passwort-Login)
+* Konfiguration der UFW-Firewall
+* Schutz durch Fail2Ban gegen Brute-Force-Angriffe
 
 ---
 
-## 🔥 Firewall (UFW)
+## ⚠️ Sicherheitsrisiken
 
-Die Firewall wurde so konfiguriert, dass alle eingehenden Verbindungen blockiert werden, außer SSH (Port 22).
+Vor der Absicherung war der Server anfällig für:
 
-![UFW Status](screenshots/ufw.png)
-
----
-
-## 🚫 Fail2Ban Schutz
-
-Fail2Ban erkennt fehlgeschlagene Login-Versuche und sperrt automatisch verdächtige IP-Adressen.
-
-![Fail2Ban](screenshots/fail2ban.png)
+* Brute-Force-Angriffe auf SSH
+* Unbefugten Zugriff durch Passwort-Login
+* Ausnutzung offener Ports
 
 ---
 
 ## 🛡️ Sicherheitsmaßnahmen
 
-* Deaktivierung der Passwort-Authentifizierung
-* Verwendung von SSH-Schlüsseln
-* Aktivierung der Firewall (UFW)
-* Schutz gegen Brute-Force-Angriffe mit Fail2Ban
+Zur Absicherung wurden folgende Maßnahmen umgesetzt:
+
+* Deaktivierung der Passwort-Authentifizierung → verhindert Brute-Force-Angriffe
+* Konfiguration der UFW-Firewall → beschränkt eingehenden Netzwerkverkehr
+* Aktivierung von Fail2Ban → blockiert verdächtige IP-Adressen automatisch
 
 ---
 
-## 📈 Ergebnis
+## 🚀 Verwendete Technologien
 
-Der Server ist jetzt besser geschützt gegen:
-
-* Unbefugten Zugriff
-* Brute-Force-Angriffe
-* Unsichere Verbindungen
+* Ubuntu Server 24.04
+* OpenSSH
+* UFW (Uncomplicated Firewall)
+* Fail2Ban
 
 ---
 
-## 👨‍💻 Autor
+## ⚙️ Umsetzung
 
-GitHub: https://github.com/webixly
+### 🔑 SSH-Authentifizierung
+
+Der Passwort-Login wurde durch SSH-Schlüssel ersetzt.
+
+* Erstellung eines ed25519-Schlüssels
+* Verbindung vom Client (Windows)
+* Deaktivierung der Passwort-Authentifizierung in der SSH-Konfiguration
+
+---
+
+### 🔥 UFW Firewall
+
+* Alle eingehenden Verbindungen blockiert
+* Ausgehende Verbindungen erlaubt
+* Port 22 (SSH) freigegeben
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22
+sudo ufw enable
+```
+
+---
+
+### 🚫 Fail2Ban Schutz
+
+* Installation und Aktivierung von Fail2Ban
+* Schutz für den SSH-Dienst aktiviert
+* Automatisches Blockieren verdächtiger IP-Adressen
+
+```bash
+sudo apt install fail2ban -y
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+```
+
+---
+
+## 🔍 Vorher vs Nachher
+
+| Bereich     | Vorher ❌    | Nachher ✅   |
+| ----------- | ----------- | ----------- |
+| SSH Login   | Passwort    | SSH Key     |
+| Firewall    | Deaktiviert | Aktiv (UFW) |
+| Brute-Force | Möglich     | Blockiert   |
+
+---
+
+## 🔒 Sicherheitsverbesserungen
+
+* Passwort-Login deaktiviert
+* Firewall-Regeln aktiviert
+* Schutz vor Brute-Force-Angriffen
+* Reduzierte Angriffsfläche
+
+---
+
+## 📸 Screenshots
+
+### SSH Login
+![SSH Login](screenshots/ssh-login.png)
+
+### Fail2Ban
+![Fail2Ban](screenshots/fail2ban.png)
+
+### UFW Firewall
+![UFW](screenshots/ufw.png)
+---
+
+## 📌 Fazit
+
+Dieses Projekt zeigt, wie einfache Maßnahmen die Sicherheit eines Linux-Servers deutlich verbessern können.
+
+Es ist eine praktische Übung für angehende Systemadministratoren oder Fachinformatiker für Systemintegration.
+
+---
+
+## 👤 Autor
+
+* Pablo (Webixly)
+* GitHub: [https://github.com/webixly](https://github.com/webixly)
