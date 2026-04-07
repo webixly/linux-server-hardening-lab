@@ -1,3 +1,14 @@
+## 🚀 Quick Summary
+
+A practical Linux server hardening project demonstrating:
+
+- 🔐 Secure SSH access using key authentication (no passwords)
+- 🔥 Firewall protection using UFW
+- 🚫 Automatic brute-force protection with Fail2Ban
+
+This lab simulates real-world system administration tasks and security practices.
+
+
 # 🔐 Linux Server Hardening Lab
 
 This project demonstrates how to secure a Linux server (Ubuntu 24.04) using practical system administration techniques.
