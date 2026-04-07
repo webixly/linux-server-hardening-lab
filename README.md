@@ -1,4 +1,7 @@
 # 🔐 Linux Server Hardening Lab
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-orange)
+![Security](https://img.shields.io/badge/Security-Hardening-blue)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
 
 This project demonstrates how to secure a Linux server (Ubuntu 24.04) using practical system administration techniques.
 
@@ -136,7 +139,7 @@ sudo systemctl start fail2ban
 This project shows how basic hardening techniques can significantly improve the security of a Linux server.
 
 It serves as a practical example for aspiring system administrators and IT professionals.
-
+🇩🇪 German version: [README-DE.md](README-DE.md)
 ---
 
 ## 👤 Author
