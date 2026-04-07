@@ -137,6 +137,7 @@ Dieses Projekt zeigt, wie einfache Maßnahmen die Sicherheit eines Linux-Servers
 Es ist eine praktische Übung für angehende Systemadministratoren oder Fachinformatiker für Systemintegration.
 
 ---
+🇬🇧 English version: [README.md](README.md)
 
 ## 👤 Autor
 
