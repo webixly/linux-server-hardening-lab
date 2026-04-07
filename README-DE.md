@@ -1,10 +1,23 @@
 # 🔐 Linux Server Hardening Lab
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-orange)
+![Security](https://img.shields.io/badge/Security-Hardening-blue)
+![Status](https://img.shields.io/badge/Projekt-Abgeschlossen-brightgreen)
 
 Dieses Projekt zeigt, wie ein Linux-Server (Ubuntu 24.04) durch grundlegende Sicherheitsmaßnahmen abgesichert werden kann.
 
 Das Ziel ist es, die Angriffsfläche zu reduzieren und den Server vor unbefugtem Zugriff sowie Brute-Force-Angriffen zu schützen.
 
 ---
+
+## 🚀 Kurzbeschreibung
+
+Dieses Projekt zeigt praxisnah, wie ein Linux-Server abgesichert werden kann:
+
+- 🔐 Sicherer SSH-Zugriff mit Schlüssel (kein Passwort)
+- 🔥 Firewall-Schutz mit UFW
+- 🚫 Automatischer Schutz vor Brute-Force-Angriffen durch Fail2Ban
+
+Dieses Lab simuliert reale Aufgaben eines Systemadministrators im Bereich IT-Sicherheit.
 
 ## 📌 Überblick
 
