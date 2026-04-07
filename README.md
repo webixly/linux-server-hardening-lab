@@ -1,8 +1,8 @@
 # 🔐 Linux Server Hardening Lab
 
-This project demonstrates how to secure a Linux server (Ubuntu 24.04) by implementing essential security measures.
+This project demonstrates how to secure a Linux server (Ubuntu 24.04) using practical system administration techniques.
 
-The goal is to reduce attack surface and protect the server from unauthorized access and brute-force attacks.
+The objective is to reduce the attack surface and protect the server against unauthorized access and brute-force attacks.
 
 ---
 
@@ -10,7 +10,7 @@ The goal is to reduce attack surface and protect the server from unauthorized ac
 
 This lab includes:
 
-* SSH key-based authentication (no password login)
+* SSH key-based authentication (password login disabled)
 * UFW firewall configuration
 * Fail2Ban protection against brute-force attacks
 
@@ -22,16 +22,16 @@ Before hardening, the server was vulnerable to:
 
 * Brute-force SSH attacks
 * Unauthorized access via password login
-* Open port exploitation
+* Exploitation of open ports
 
 ---
 
 ## 🛡️ Mitigation Strategy
 
-To secure the system, the following actions were taken:
+The following measures were implemented:
 
 * Disabled password authentication → prevents brute-force attacks
-* Configured UFW firewall → restricts incoming traffic
+* Configured UFW firewall → restricts incoming connections
 * Enabled Fail2Ban → automatically blocks suspicious IPs
 
 ---
@@ -49,11 +49,13 @@ To secure the system, the following actions were taken:
 
 ### 🔑 SSH Key Authentication
 
-Password login was replaced with SSH key authentication.
+Password-based login was replaced with SSH key authentication.
 
-* Generated ed25519 key
-* Connected from client (Windows)
-* Disabled password authentication in SSH config
+* Generated an ed25519 key pair
+* Connected from a Windows client
+* Disabled password authentication in SSH configuration
+
+---
 
 ### 🔥 UFW Firewall Configuration
 
@@ -67,6 +69,8 @@ sudo ufw default allow outgoing
 sudo ufw allow 22
 sudo ufw enable
 ```
+
+---
 
 ### 🚫 Fail2Ban Protection
 
@@ -103,11 +107,17 @@ sudo systemctl start fail2ban
 
 ## 📸 Screenshots
 
-See the `/screenshots` folder for:
+### SSH Key Authentication
 
-* SSH login
-* UFW status
-* Fail2Ban status
+![SSH Login](screenshots/ssh-login.png)
+
+### Fail2Ban Protection
+
+![Fail2Ban](screenshots/fail2ban.png)
+
+### UFW Firewall Status
+
+![UFW](screenshots/ufw.png)
 
 ---
 
@@ -115,11 +125,11 @@ See the `/screenshots` folder for:
 
 This project shows how basic hardening techniques can significantly improve the security of a Linux server.
 
-It is a practical example for aspiring system administrators and IT professionals.
+It serves as a practical example for aspiring system administrators and IT professionals.
 
 ---
 
 ## 👤 Author
 
 * Pablo (Webixly)
-* GitHub: [https://github.com/webixly](https://github.com/webixly)
+* GitHub: https://github.com/webixly
