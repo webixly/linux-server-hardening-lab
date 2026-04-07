@@ -1,130 +1,67 @@
 # 🔐 Linux Server Hardening Lab
 
-This project demonstrates how to secure a Linux server using real-world system administration practices.
-It focuses on SSH hardening, firewall configuration, and protection against brute-force attacks.
+## 📌 Overview
 
----
+This project demonstrates how to secure a Linux server by implementing essential security measures:
 
-## 🚀 Overview
-
-In this lab, I configured and secured an Ubuntu server by applying multiple layers of security:
-
-* SSH key-based authentication (password login disabled)
+* SSH key-based authentication (no password login)
 * UFW firewall configuration
-* Fail2Ban intrusion prevention system
-* Real brute-force attack simulation and mitigation
+* Fail2Ban protection against brute-force attacks
 
 ---
 
-## 🛠️ Technologies Used
+## ⚙️ Technologies Used
 
-* Ubuntu Server 24.04 LTS
+* Ubuntu Server 24.04
 * OpenSSH
 * UFW (Uncomplicated Firewall)
 * Fail2Ban
 
 ---
 
-## 🔐 SSH Hardening
+## 🔐 SSH Key Authentication
 
-* Generated SSH key pair (ed25519)
-* Disabled password authentication
-* Secured remote access using key-based login only
+Password login was replaced with SSH key authentication for improved security.
 
-```bash
-sudo nano /etc/ssh/sshd_config
-```
-
-```text
-PasswordAuthentication no
-PermitRootLogin no
-PubkeyAuthentication yes
-```
+![SSH Login](screenshots/ssh-login.png)
 
 ---
 
-## 🔥 Firewall Configuration (UFW)
+## 🔥 UFW Firewall Configuration
 
-* Default deny incoming traffic
-* Allow SSH (port 22)
+Firewall is configured to deny all incoming traffic except SSH (port 22).
 
-```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow 22
-sudo ufw enable
-```
+![UFW Status](screenshots/ufw.png)
 
 ---
 
-## 🛡️ Fail2Ban Protection
+## 🚫 Fail2Ban Protection
 
-* Installed and configured Fail2Ban for SSH
-* Automatic banning of IP after failed login attempts
+Fail2Ban detects and blocks brute-force attacks on SSH.
 
-```bash
-sudo apt install fail2ban -y
-```
-
-```ini
-[sshd]
-enabled = true
-maxretry = 3
-bantime = 3600
-findtime = 600
-```
+![Fail2Ban](screenshots/fail2ban.png)
 
 ---
 
-## 💣 Attack Simulation
+## 🛡️ Security Improvements
 
-Simulated brute-force attack by attempting multiple failed SSH logins.
-
-Result:
-
-* IP address automatically banned by Fail2Ban
-* Connection blocked (timeout)
-
-```bash
-sudo fail2ban-client status sshd
-```
-
-Example output:
-
-```
-Currently banned: 1
-Banned IP list: 192.168.xxx.xxx
-```
+* Disabled password authentication (SSH)
+* Enabled firewall rules
+* Protected against brute-force attacks
+* Reduced attack surface
 
 ---
 
-## 📸 Proof
+## 📈 Result
 
-(Add your screenshots here)
+The server is now significantly more secure against common attacks such as:
 
-* SSH login without password
-* Fail2Ban banning IP
-* UFW status
-
----
-
-## 🧠 What I Learned
-
-* How SSH authentication works internally
-* Importance of disabling password-based access
-* How to secure a Linux server against brute-force attacks
-* Monitoring and testing security mechanisms
+* Unauthorized SSH access
+* Brute-force login attempts
+* Open port exploitation
 
 ---
 
-## ⚡ Future Improvements
+## 👨‍💻 Author
 
-* VPN (WireGuard)
-* Log monitoring and alerting
-* Automation scripts (Bash)
-
----
-
-## 📌 Author
-
-Aymen (Webixly)
+* GitHub: https://github.com/webixly
